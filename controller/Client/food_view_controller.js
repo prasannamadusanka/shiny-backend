@@ -11,7 +11,7 @@ const JWT = require('jsonwebtoken');
 exports.VIEW_items = (req, res, next) => {
     console.log("hi");
     try {
-        conn.query(VIEW_ITEMS,[req.body.type], (err,data,feild)=>{
+        conn.query(VIEW_ITEMS,(err,data,feild)=>{
 
             if(err){
                 return next(new AppError(err))

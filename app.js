@@ -46,7 +46,7 @@ app.use("/al" ,  al_route);
 app.use("/np" ,  np_route);
 
 // if request come from "localhost:3000/pt", then it goes to pediatrician_route
-app.use("/client" ,  cl_route);
+app.use("/client",cl_route);
 
 // use errorhandler middleware to handle errors
 app.use( errorHandler )

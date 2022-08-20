@@ -1,1 +1,1 @@
-exports.VIEW_ITEMS = "SELECT * FROM `food item` where type=?";
+exports.VIEW_ITEMS = "SELECT * FROM `food item`";
