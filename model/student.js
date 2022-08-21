@@ -1,15 +1,14 @@
 const Joi = require('@hapi/joi');
 
 exports.STUDENT_MODEL = Joi.object({
-    s_id: Joi.string(),
-    // age: Joi.number().required(),
-    // rank: Joi.number().integer().required(),
+    username: Joi.string().min(3).max(100).required(),
     email: Joi.string().email().required(),
-    password: Joi.string().min(6).required(),
-    name: Joi.string().min(3).max(100).required(),
-    type: Joi.number().required(),
+    contactNumber: Joi.number().required(),
+    addressOne: Joi.string().min(3).max(100).required(),
+    addressTwo: Joi.string().min(3).max(100).required(),
+    nic: Joi.number().required(),
+    password: Joi.string().min(6).required()
 })
-
 exports.STUDENT_LOGIN_MODEL = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().min(6).required()
