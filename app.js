@@ -24,32 +24,32 @@ const cors = require('cors');
 
 
 // use cors middleware to enable CORS with various options
-app.use(cors({ origin: "*"}))
+app.use(cors({ origin: "*" }))
 
 //use express.json() middleware to parses incoming requests with JSON payloads
 //and is based on body-parser
 app.use(express.json());
 
 // if request come from "localhost:3000/student", then it gose to student_route
-app.use("/student" , student_route);
+app.use("/systemlogin", student_route);
 
 // if request come from "localhost:3000/admin", then it goes to student_route
-app.use("/admin" , admin_route);
+app.use("/admin", admin_route);
 
 // if request come from "localhost:3000/todos", then it goes to student_todos_route
-app.use("/todos" , auth,  student_todos_route);
+app.use("/todos", auth, student_todos_route);
 
 // if request come from "localhost:3000/Astrologer", then it goes to astrologer_route
-app.use("/al" ,  al_route);
+app.use("/al", al_route);
 
 // if request come from "localhost:3000/np/new_request", then it goes to name_provider_route
-app.use("/np" ,  np_route);
+app.use("/np", np_route);
 
 // if request come from "localhost:3000/pt", then it goes to pediatrician_route
-app.use("/client",cl_route);
+app.use("/client", cl_route);
 
 // use errorhandler middleware to handle errors
-app.use( errorHandler )
+app.use(errorHandler)
 
 // this is the prot that server is running on
 const PORT = 3000;

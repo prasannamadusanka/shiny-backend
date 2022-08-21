@@ -8,28 +8,29 @@ const JWT = require('jsonwebtoken');
 
 
 exports.student_login = (req, res, next) => {
-    const email=req.query.email
-    const password=req.query.password
-        const data1={
-                "email":email,
-                "password":password
-        }
-        console.log(data1)
-    if (isEmpty(data1)) return next( new AppError("form data not found" , 400));
+
+    const email = req.query.email
+    const password = req.query.password
+    const data1 = {
+        "email": email,
+        "password": password
+    }
+    console.log(data1)
+    if (isEmpty(data1)) return next(new AppError("form data not found", 400));
     try {
         const { error } = STUDENT_LOGIN_MODEL.validate(data1);
-        if (error) return next( new AppError( error.details[0].message , 400))
+        if (error) return next(new AppError(error.details[0].message, 400))
 
         conn.query(CHECK_STUDENT_EMAIL, [data1.email], async (err, data, feilds) => {
-            if (err) return next( new AppError( err , 500));
+            if (err) return next(new AppError(err, 500));
             console.log("data from database")
             console.log(data)
-            if ( !data.length ) return next( new AppError( "Email or Password Invalid" , 401));
-            const isMatched = await bcrypt.compare(data1.password , data[0].password);
+            if (!data.length) return next(new AppError("Email or Password Invalid", 401));
+            const isMatched = await bcrypt.compare(data1.password, data[0].password);
             console.log(!isMatched)
-            if( isMatched ) return next( new AppError( "Email or Password Invalid 1" , 401));
+            if (isMatched) return next(new AppError("Email or Password Invalid 1", 401));
 
-            const token = JWT.sign( { name: data[0].name, s_id: data[0].user_id } , "ucscucscucsc" , { expiresIn: "1d"} );
+            const token = JWT.sign({ name: data[0].name, s_id: data[0].user_id }, "ucscucscucsc", { expiresIn: "1d" });
 
             res.header("auth-token", token).status(200).json({
                 data: data[0].type,
@@ -37,39 +38,40 @@ exports.student_login = (req, res, next) => {
             })
 
         })
-    } catch ( err ) {
+    } catch (err) {
 
     }
 }
 
 exports.student_register = (req, res, next) => {
-    if (isEmpty(req.body)) return next( new AppError("form data not found" , 400));
+    console.log(req.body)
+    // if (isEmpty(req.body)) return next(new AppError("form data not found", 400));
 
-    try {
-        const { error } = STUDENT_MODEL.validate(req.body);
+    // try {
+    //     const { error } = STUDENT_MODEL.validate(req.body);
 
-        if (error) return next( new AppError( error.details[0].message , 400));
+    //     if (error) return next(new AppError(error.details[0].message, 400));
 
-        conn.query(CHECK_STUDENT_EMAIL, [req.body.email], async (err, data, feilds) => {
-            if (err) return next( new AppError( err , 500));
-            
-            if (data.length) return next( new AppError("Email already used!" , 400));
+    //     conn.query(CHECK_STUDENT_EMAIL, [req.body.email], async (err, data, feilds) => {
+    //         if (err) return next(new AppError(err, 500));
 
-            const salt = await bcrypt.genSalt(10);
-            const hashedValue = await bcrypt.hash(req.body.password, salt);
+    //         if (data.length) return next(new AppError("Email already used!", 400));
 
-            conn.query(REGISTER_STUDENT, [[req.body.name,req.body.email, req.body.type , hashedValue]], (err, data, feilds) => {
-                if (err) return next( new AppError( err , 500));
+    //         const salt = await bcrypt.genSalt(10);
+    //         const hashedValue = await bcrypt.hash(req.body.password, salt);
 
-                res.status(201).json({
-                    data: "Student Registration success!"
-                })
-            })
-        })
+    //         conn.query(REGISTER_STUDENT, [[req.body.name, req.body.email, req.body.type, hashedValue]], (err, data, feilds) => {
+    //             if (err) return next(new AppError(err, 500));
 
-    } catch (err) {
-        res.status(500).json({
-            error: err
-        })
-    }
+    //             res.status(201).json({
+    //                 data: "Student Registration success!"
+    //             })
+    //         })
+    //     })
+
+    // } catch (err) {
+    //     res.status(500).json({
+    //         error: err
+    //     })
+    // }
 }
