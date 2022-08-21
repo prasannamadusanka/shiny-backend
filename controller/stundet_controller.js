@@ -41,10 +41,11 @@ exports.student_login = (req, res, next) => {
     } catch (err) {
 
     }
+
 }
 
 exports.student_register = (req, res, next) => {
-    console.log(req.body)
+    console.log(req)
     // if (isEmpty(req.body)) return next(new AppError("form data not found", 400));
 
     // try {
