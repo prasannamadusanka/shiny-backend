@@ -1,0 +1,1 @@
+exports.VIEW_INGREDIENTS = "SELECT * FROM `ingredients`";

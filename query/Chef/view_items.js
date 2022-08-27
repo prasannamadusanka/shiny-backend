@@ -1,0 +1,1 @@
+exports.VIEW_ITEMS = "SELECT * FROM `food item`";

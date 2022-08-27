@@ -1,0 +1,1 @@
+exports.VIEW_FULLEVENT = "SELECT * FROM `event` WHERE user_id=? AND event_id=?;";
