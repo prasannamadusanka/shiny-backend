@@ -45,16 +45,18 @@ exports.student_login = (req, res, next) => {
 }
 
 exports.student_register = (req, res, next) => {
-    if (isEmpty(req.body)) return next(new AppError("form data not found", 400));
+    console.log(req.body)
+    // if (isEmpty(req.body)) return next(new AppError("form data not found", 400));
 
     try {
-        const { error } = STUDENT_MODEL.validate(req.body);
-
-        if (error) return next(new AppError(error.details[0].message, 400));
+        // const { error } = STUDENT_MODEL.validate(req.body);
+        
+        // if (error) return next(new AppError(error.details[0].message, 400));
 
         conn.query(CHECK_STUDENT_EMAIL, [req.body.email], async (err, data, feilds) => {
+            //console.log(data)
             if (err) return next(new AppError(err, 500));
-
+            
             if (data.length) return next(new AppError("Email already used!", 400));
             const salt = await bcrypt.genSalt(10);
             const hashedValue = await bcrypt.hash(req.body.password, salt);

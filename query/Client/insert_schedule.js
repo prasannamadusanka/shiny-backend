@@ -1,0 +1,1 @@
+exports.insert_schedule_record = " INSERT INTO `event_rough_time_schedule` VALUES(null,?,?,?,?)" ;
