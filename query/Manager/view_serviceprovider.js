@@ -1,0 +1,1 @@
+exports.VIEW_SERVICEPROVIDER = "SELECT * FROM `service provider`";

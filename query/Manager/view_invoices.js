@@ -1,0 +1,1 @@
+exports.VIEW_INVOICES = "SELECT * FROM `invoice`";
