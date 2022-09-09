@@ -1,1 +1,1 @@
-exports.VIEW_ITEMS = "SELECT * FROM `food item`";
+exports.VIEW_ITEMS = "SELECT name,image FROM `food item`";
