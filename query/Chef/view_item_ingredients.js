@@ -1,0 +1,1 @@
+exports.VIEW_ITEM_INGREDIENTS = "SELECT * FROM `food_item_ingredient_list` WHERE item_id=?;";

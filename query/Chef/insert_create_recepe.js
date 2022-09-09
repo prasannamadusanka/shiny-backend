@@ -1,0 +1,1 @@
+exports.INSERT_CREATE_RECEPE = "INSERT INTO `food_item_ingredient_list`(`item_id`, `ingredient_id`, `quantity`, `measurement`) VALUES ('3','3','50','kg')";

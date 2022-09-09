@@ -9,6 +9,7 @@ const student_todos_route = require('./route/student_todos');
 const al_route = require('./route/Astrologer/al_routs');
 const np_route = require('./route/Name-Provider/np_routs');
 const cl_route = require('./route/Client/cl_route');
+const chef_route = require('./route/Chef/chef_route');//this is for chef routs
 
 // require JWT auth Service
 const auth = require('./service/auth_service');
@@ -47,6 +48,9 @@ app.use("/np", np_route);
 
 // if request come from "localhost:3000/pt", then it goes to pediatrician_route
 app.use("/client", cl_route);
+
+//
+app.use("/chef", chef_route);
 
 // use errorhandler middleware to handle errors
 app.use(errorHandler)

@@ -1,0 +1,1 @@
+exports.VIEW_NO_OF_PENDING_INGREDIENTS = "SELECT COUNT(*) AS number FROM `ingredients` WHERE status = 0";
