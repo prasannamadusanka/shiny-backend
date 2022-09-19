@@ -18,7 +18,7 @@ exports.VIEW_pending_ingredients_list = (req, res, next) => {
             }
             else{
                 res.status(200).json({
-                    item_ingredients:data
+                    pending_ingredient_lists:data
                 })
             }
 

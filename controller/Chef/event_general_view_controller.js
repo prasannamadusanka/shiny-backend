@@ -10,9 +10,9 @@ const JWT = require('jsonwebtoken');
 
 exports.VIEW_event_general = (req, res, next) => {
     console.log("hi-chef view event general");
-    console.log(req.body)
+    console.log(req.query.date)
     try {
-        conn.query(VIEW_EVENT_GENERAL,[req.body.date],(err,data,feild)=>{
+        conn.query(VIEW_EVENT_GENERAL,[req.query.date],(err,data,feild)=>{
 
             if(err){
                 return next(new AppError(err))
