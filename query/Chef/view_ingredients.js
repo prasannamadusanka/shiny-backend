@@ -1,1 +1,1 @@
-exports.VIEW_INGREDIENTS = "SELECT * FROM `ingredients`";
+exports.VIEW_INGREDIENTS = "SELECT * FROM `ingredients` WHERE status != 2";
