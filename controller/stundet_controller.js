@@ -1,6 +1,6 @@
 const { isEmpty } = require('../utils/is_empty');
 const conn = require('../service/db_service');
-const { CHECK_STUDENT_EMAIL, REGISTER_STUDENT,REGISTER_CLIENT ,REGISTER_USERS } = require('../query/student');
+const { CHECK_STUDENT_EMAIL, REGISTER_STUDENT, REGISTER_CLIENT, REGISTER_USERS } = require('../query/student');
 const { STUDENT_MODEL, STUDENT_LOGIN_MODEL } = require('../model/student');
 const bcrypt = require('bcryptjs');
 const AppError = require('../utils/appError');
@@ -33,7 +33,8 @@ exports.student_login = (req, res, next) => {
             const token = JWT.sign({ name: data[0].name, s_id: data[0].user_id }, "ucscucscucsc", { expiresIn: "1d" });
 
             res.header("auth-token", token).status(200).json({
-                data: data[0].type,
+                data1: data[0].type,
+                data2: data[0].user_id,
                 token: token
             })
 
@@ -50,13 +51,13 @@ exports.student_register = (req, res, next) => {
 
     try {
         // const { error } = STUDENT_MODEL.validate(req.body);
-        
+
         // if (error) return next(new AppError(error.details[0].message, 400));
 
         conn.query(CHECK_STUDENT_EMAIL, [req.body.email], async (err, data, feilds) => {
             //console.log(data)
             if (err) return next(new AppError(err, 500));
-            
+
             if (data.length) return next(new AppError("Email already used!", 400));
             const salt = await bcrypt.genSalt(10);
             const hashedValue = await bcrypt.hash(req.body.password, salt);
@@ -70,12 +71,12 @@ exports.student_register = (req, res, next) => {
             })
         })
         // try {
-            conn.query(REGISTER_USERS, [[req.body.password], [req.body.username], [req.body.email], [req.body.contactNumber]], (err, data, feilds) => {
-                if (err) return next(new AppError(err, 500));
-                res.status(201).json({
-                    data: "registration success"
-                })
+        conn.query(REGISTER_USERS, [[req.body.password], [req.body.username], [req.body.email], [req.body.contactNumber]], (err, data, feilds) => {
+            if (err) return next(new AppError(err, 500));
+            res.status(201).json({
+                data: "registration success"
             })
+        })
         // } catch (err){
         //     console.log("errors")
         // }

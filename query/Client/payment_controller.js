@@ -1,28 +1,31 @@
 const { isEmpty } = require('../../utils/is_empty');
 const conn = require('../../service/db_service');
 const {
-    VIEW_MENUS
-} = require('../../query/Chef/view_menus');
+    INITIAL_ADVANCE
+
+} = require('../../query/Client/payments');
+const { PEDIATRICIAN_MODEL } = require('../../model/Pediatrician/view_article');
 const bcrypt = require('bcryptjs');
 const AppError = require('../../utils/appError');
 const JWT = require('jsonwebtoken');
 
-exports.VIEW_menus= (req, res, next) => {
+exports.initialAdvance = (req, res, next) => {
     console.log("hi");
     try {
-        conn.query(VIEW_MENUS,(err,data,feild)=>{
+        conn.query(INITIAL_ADVANCE, (err, data, feild) => {
 
-            if(err){
+            if (err) {
                 return next(new AppError(err))
             }
-            else{
+            else {
                 res.status(200).json({
-                    menus:data
+                    food1: data
                 })
             }
 
         })
-    } catch ( err ) {
+    } catch (err) {
 
     }
 }
+

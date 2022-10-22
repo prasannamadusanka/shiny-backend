@@ -38,7 +38,7 @@ app.use("/systemlogin", student_route);
 app.use("/admin", admin_route);
 
 // if request come from "localhost:3000/todos", then it goes to student_todos_route
-app.use("/todos", auth, student_todos_route);
+app.use("/todos", student_todos_route);
 
 // if request come from "localhost:3000/Astrologer", then it goes to astrologer_route
 app.use("/al", al_route);
@@ -47,7 +47,7 @@ app.use("/al", al_route);
 app.use("/np", np_route);
 
 // if request come from "localhost:3000/pt", then it goes to pediatrician_route
-app.use("/client", cl_route);
+app.use("/client",cl_route);
 
 //
 app.use("/chef", chef_route);

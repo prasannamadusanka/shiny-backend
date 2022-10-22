@@ -1,6 +1,8 @@
 const { isEmpty } = require('../../utils/is_empty');
 const conn = require('../../service/db_service');
+
 const { insert_schedule_record } = require('../../query/client/insert_schedule');
+const { VIEW_SCHEDULE } = require('../../query/client/view_schedule');
 
 const {Add_Event_Record} = require('../../model/cient/event');
 const bcrypt = require('bcryptjs');
@@ -26,10 +28,7 @@ exports.addSchedule = (req, res, next) => {
                     data : data
                 })
             })
-        // } catch (err){
-        //     console.log("errors")
-        // }
-
+ 
 
     } catch (err) {
         res.status(500).json({
@@ -37,3 +36,27 @@ exports.addSchedule = (req, res, next) => {
         })
     }
 }
+exports.viewSchedule = (req, res, next) => {
+    console.log(req.query.event_id)
+    
+    // if (isEmpty(req.body)) return next(new AppError("form data not found", 400));
+
+    console.log();
+    try {
+        conn.query(VIEW_SCHEDULE,[req.query.event_id],(err,data,feild)=>{
+
+            if(err){
+                return next(new AppError(err))
+            }
+            else{
+                res.status(200).json({
+                    menus:data
+                })
+            }
+
+        })
+    } catch ( err ) {
+
+    }
+}
+
