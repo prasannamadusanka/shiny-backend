@@ -1,0 +1,1 @@
+exports.VIEW_BOOKINGS = "SELECT * FROM `my event`";
