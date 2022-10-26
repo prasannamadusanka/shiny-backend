@@ -10,6 +10,7 @@ const al_route = require('./route/Astrologer/al_routs');
 const np_route = require('./route/Name-Provider/np_routs');
 const cl_route = require('./route/Client/cl_route');
 const chef_route = require('./route/Chef/chef_route');//this is for chef routs
+const ep_route = require('./route/Eventplanner/eventplanner_route');
 
 // require JWT auth Service
 const auth = require('./service/auth_service');
@@ -22,6 +23,7 @@ const app = express();
 
 // require cors package
 const cors = require('cors');
+const mn_route = require('./route/Manager/mn_route');
 
 
 // use cors middleware to enable CORS with various options
@@ -51,6 +53,12 @@ app.use("/client",cl_route);
 
 //
 app.use("/chef", chef_route);
+
+//
+app.use("/eventplanner", ep_route);
+
+//
+app.use("/manager", mn_route);
 
 // use errorhandler middleware to handle errors
 app.use(errorHandler)

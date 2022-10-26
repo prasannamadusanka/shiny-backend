@@ -1,0 +1,1 @@
+exports.VIEW_INGREDIENTLIST = "SELECT event_ingredient_list.event_id,event_ingredient_list.predicted_qty,event.date,event.type FROM `event_ingredient_list` INNER JOIN `event` ON event_ingredient_list.event_id=event.event_id WHERE event_ingredient_list.acceptionStatus='notviewed' AND  event.banquet_id=?";

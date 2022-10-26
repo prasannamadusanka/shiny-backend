@@ -1,0 +1,1 @@
+exports.VIEW_INGREDIENTS = "SELECT * FROM `event_ingredient_list` WHERE  event_id=?";

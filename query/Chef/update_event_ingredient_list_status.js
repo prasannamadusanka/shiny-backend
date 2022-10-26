@@ -1,0 +1,1 @@
+exports.UPDATE_COMPLETION_INGREDIENT_LIST_STATUS = "UPDATE `event` SET `ingredient_list_completion_status`='completed' WHERE event_id=3";

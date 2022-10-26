@@ -1,0 +1,1 @@
+exports.VIEW_RECEPE = "SELECT * FROM `food item` AS food_item INNER JOIN `food_item_ingredient_list` ON food_item.item_id=food_item_ingredient_list.item_id INNER JOIN `ingredients` ON food_item_ingredient_list.ingredient_id=ingredients.ingredient_id WHERE food_item.item_id=3";

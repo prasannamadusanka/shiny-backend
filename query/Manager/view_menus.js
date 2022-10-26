@@ -1,0 +1,1 @@
+exports.VIEW_MENUS = "SELECT * FROM `menu` WHERE banquet_id=?";

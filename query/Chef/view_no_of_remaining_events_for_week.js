@@ -1,0 +1,1 @@
+exports.VIEW_NO_OF_REMAINING_EVENTS_FOR_WEEK = "SELECT COUNT(*) AS number FROM `event` WHERE date > CURDATE() AND date < CURDATE()+7";

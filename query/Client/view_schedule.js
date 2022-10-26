@@ -1,1 +1,1 @@
-exports.VIEW_SCHEDULE = "SELECT * FROM `event_time_schedule` WHERE event_id=?";
+exports.VIEW_SCHEDULE = "SELECT * FROM `event_rough_time_schedule` WHERE event_id=?";

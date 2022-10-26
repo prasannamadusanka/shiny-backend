@@ -9,10 +9,10 @@ const AppError = require('../../utils/appError');
 const JWT = require('jsonwebtoken');
 
 exports.VIEW_full_event = (req, res, next) => {
-    console.log("hi-chef view event");
-    console.log(req.body);
+    console.log("hi-chef view full event");
+    console.log(req.query.event_id);
     try {
-        conn.query(VIEW_FULLEVENT,[req.body.user_id,req.body.event_id],(err,data,feild)=>{
+        conn.query(VIEW_FULLEVENT,[req.query.event_id],(err,data,feild)=>{
 
             if(err){
                 return next(new AppError(err))

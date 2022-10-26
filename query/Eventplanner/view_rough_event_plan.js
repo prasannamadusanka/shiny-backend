@@ -1,0 +1,1 @@
+exports.VIEW_ROUGH_EVENT_PLAN = "SELECT * FROM `event_rough_time_schedule` WHERE event_id=3;";

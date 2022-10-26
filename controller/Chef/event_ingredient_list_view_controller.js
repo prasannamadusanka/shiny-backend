@@ -10,9 +10,9 @@ const JWT = require('jsonwebtoken');
 
 exports.VIEW_event_ingredient_list = (req, res, next) => {
     console.log("hi-chef view event ingredient list");
-    console.log(req.body);
+    console.log(req.query.event_id);
     try {
-        conn.query(VIEW_EVENT_INGREDIENT_LIST,[req.body.event_id],(err,data,feild)=>{
+        conn.query(VIEW_EVENT_INGREDIENT_LIST,[req.query.event_id],(err,data,feild)=>{
 
             if(err){
                 return next(new AppError(err))

@@ -1,0 +1,1 @@
+exports.ADD_EXPENSE = "INSERT INTO `expence` (`banquet_id`, `date`, `description`, `expence`) VALUES (?,?,?,?)";

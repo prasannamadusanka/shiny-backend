@@ -1,0 +1,1 @@
+exports.VIEW_FULLEVENT = "SELECT * FROM `event` JOIN `users` ON event.user_id=users.user_id JOIN `menu` ON event.menu_id=menu.menu_id WHERE event_id=?;";

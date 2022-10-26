@@ -1,0 +1,1 @@
+exports.VIEW_EXPENCE = "SELECT * FROM `expence` WHERE banquet_id=?";

@@ -1,4 +1,4 @@
-exports.VIEW_EVENT_GENERAL = "SELECT * FROM `event` WHERE date='2022-08-17' CROSS JOIN `users` WHERE event.user_id=users.user_id";
+exports.VIEW_EVENT_GENERAL = "SELECT * FROM `event`  JOIN `client` ON event.user_id=client.user_id JOIN `menu` ON event.menu_id=menu.menu_id WHERE event.date=?";
 
 // SELECT Customers.CustomerName, Orders.OrderID
 // FROM Customers
@@ -6,3 +6,4 @@ exports.VIEW_EVENT_GENERAL = "SELECT * FROM `event` WHERE date='2022-08-17' CROS
 // WHERE Customers.CustomerID=Orders.CustomerID;
 
 // CROSS JOIN `users`
+//

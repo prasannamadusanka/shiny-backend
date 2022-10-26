@@ -1,0 +1,1 @@
+exports.VIEW_REQ_SERVICEPROVIDER = "SELECT * FROM `service_provider` INNER JOIN `users` ON service_provider.service_provider_id != users.user_id";

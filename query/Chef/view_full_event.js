@@ -1,1 +1,1 @@
-exports.VIEW_FULLEVENT = "SELECT * FROM `event` WHERE user_id=? AND event_id=?;";
+exports.VIEW_FULLEVENT = "SELECT * FROM `event` JOIN `client` ON event.user_id=client.user_id JOIN `menu` ON event.menu_id=menu.menu_id WHERE event_id=?;";

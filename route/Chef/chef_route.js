@@ -8,11 +8,18 @@ const full_event_view_controller = require('../../controller/Chef/full_event_vie
 const item_ingredients_view_controller = require('../../controller/Chef/food_item_ingredients_controller');
 const event_general_view_controller = require('../../controller/Chef/event_general_view_controller');
 const pending_ingredients_list_view_controller = require('../../controller/Chef/pending_ingredients_list_view_controller');
-const create_recepe_insert_controller = require('../../controller/Chef/create_recepe_insert_controller');
 const recepes_view_controller = require('../../controller/Chef/recepes_view_controller');
 const no_of_pending_ingredients_view_controller = require('../../controller/Chef/no_of_pending_ingredients_view_controller');
 const no_of_pending_ingredient_lists_view_controller = require('../../controller/Chef/no_of_pending_ingredient_lists_view_controller');
 const event_ingredient_list_view_controller = require('../../controller/Chef/event_ingredient_list_view_controller');
+const no_of_remaining_events_for_week_view_controller = require('../../controller/Chef/no_of_remaining_events_for_week_view_controller');
+const event_selected_food_item_list_view_controller = require('../../controller/Chef/event_selected_food_item_list_view_controller');
+const recepe_view_controller = require('../../controller/Chef/recepe_view_controller');
+
+const create_recepe_insert_controller = require('../../controller/Chef/create_recepe_insert_controller');
+const create_recepe_next_insert_controller = require('../../controller/Chef/create_recepe_next_insert_controller');
+
+const update_event_ingredient_list_status_controller = require('../../controller/Chef/event_ingredient_list_status_update_controller');
 
 // Thisrouts for menus
 chef_route.get("/view_menus",menu_view_controller.VIEW_menus);
@@ -37,9 +44,21 @@ chef_route.get("/no_of_pending_ingredient_lists",no_of_pending_ingredient_lists_
 
 chef_route.get("/event_ingredient_list",event_ingredient_list_view_controller.VIEW_event_ingredient_list);
 
+chef_route.get("/no_of_remaining_events_for_week",no_of_remaining_events_for_week_view_controller.VIEW_no_of_remaining_events_for_week);
+
+chef_route.get("/event_selected_food_item_list",event_selected_food_item_list_view_controller.VIEW_event_selected_menu);
+
+chef_route.get("/view_recepe",recepe_view_controller.VIEW_recepe);
 
 
-chef_route.get("/insert_create_recepe",create_recepe_insert_controller.INSERT_CREATE_RECEPE);
+
+chef_route.post("/insert_create_recepe",create_recepe_insert_controller.insert_recepe);
+
+chef_route.post("/insert_create_recepe_next",create_recepe_next_insert_controller.insert_recepe_next);
+
+
+
+chef_route.post("/update_ingredient_list_status",update_event_ingredient_list_status_controller.UPDATE_event_ingredient_list_status);
 
 
 module.exports = chef_route;

@@ -1,0 +1,1 @@
+exports.VIEW_PRE_INGRE_LIST = "SELECT event_ingredient_list.event_id,event_ingredient_list.predicted_qty,ingredients.ingredient_name FROM `event_ingredient_list` INNER JOIN ingredients ON event_ingredient_list.ingredient_id=ingredients.ingredient_id WHERE event_ingredient_list.event_id=?";

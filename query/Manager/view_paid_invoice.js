@@ -1,0 +1,1 @@
+exports.VIEW_PAID_INVOICE = "SELECT * FROM `pay_for_service` WHERE payment_status='paid'";

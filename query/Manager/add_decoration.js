@@ -1,0 +1,1 @@
+exports.ADD_DECORATION = "INSERT INTO `decos` (`deco_id`, `name`, `deco_type_id`, `description`, `image`) VALUES (5,?,7,?,?)";
